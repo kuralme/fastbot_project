@@ -42,23 +42,16 @@ def generate_launch_description():
                 output='screen',
                 name='occupancy_grid_node',
                 parameters=[{'use_sim_time': use_sim_time}],
-                arguments=['-resolution', '0.05', '-publish_period_sec', '1.0'],
+                arguments=['-resolution', '0.03', '-publish_period_sec', '1.0'],
             ),
 
             Node(
-                package='tf2_ros',
-                executable='static_transform_publisher',
-                name='static_tf_lidar',
-                arguments=['0', '0', '0.108', '0', '0', '0', 'fastbot_1_base_link', 'fastbot_1_lidar']
-            ),
-
-            # Node(
-            #     package='rviz2',
-            #     executable='rviz2',
-            #     name='rviz2',
-            #     output='screen',
-            #     arguments=['-d', rviz_config_sim]
-            # )
+                package='rviz2',
+                executable='rviz2',
+                name='rviz2',
+                output='screen',
+                arguments=['-d', rviz_config_sim]
+            )
         ]
     )
 
